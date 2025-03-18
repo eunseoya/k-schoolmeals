@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server';
 // Helper Functions (adapted from Python)
 function getRandomMenuItem(allMenuItems, ignoreKeywords) {
     const allItems = Object.keys(allMenuItems).filter(
-        item => !ignoreKeywords.some(keyword => item.includes(keyword))
+        (item) => !ignoreKeywords.some((keyword) => item.includes(keyword))
     );
     if (allItems.length === 0) return null;
     return allItems[Math.floor(Math.random() * allItems.length)];
@@ -12,7 +12,7 @@ function getRandomMenuItem(allMenuItems, ignoreKeywords) {
 
 function getMenuByCategory(allMenuItems, category, ignoreKeywords) {
     const items = Object.keys(allMenuItems).filter(
-        item => item.includes(category) && !ignoreKeywords.some(keyword => item.includes(keyword))
+        (item) => item.includes(category) && !ignoreKeywords.some((keyword) => item.includes(keyword))
     );
     const limit = Math.min(5, items.length);
     const shuffledItems = [...items].sort(() => Math.random() - 0.5); // Shuffle array
@@ -21,11 +21,11 @@ function getMenuByCategory(allMenuItems, category, ignoreKeywords) {
 
 function getRandomCombination() {
     const pairings = {
-        "밥": ['국', '찌개', '나물', '조림', '볶음'],
-        "면": ['볶음', '구이'],
-        "파스타": ['구이', '샐러드'],
-        "소고기": ['국', '구이'],
-        "돼지고기": ['찌개', '볶음']
+        밥: ['국', '찌개', '나물', '조림', '볶음'],
+        면: ['볶음', '구이'],
+        파스타: ['구이', '샐러드'],
+        소고기: ['국', '구이'],
+        돼지고기: ['찌개', '볶음']
     };
 
     const main = Object.keys(pairings)[Math.floor(Math.random() * Object.keys(pairings).length)];
@@ -37,7 +37,7 @@ function getRandomCombination() {
 function getRandomCombinationMeal(allMenuItems, ignoreKeywords) {
     const randomCombination = getRandomCombination();
     const allItems = Object.keys(allMenuItems).filter(
-        item => !ignoreKeywords.some(keyword => item.includes(keyword))
+        (item) => !ignoreKeywords.some((keyword) => item.includes(keyword))
     );
 
     const randomItems = [];
@@ -45,14 +45,13 @@ function getRandomCombinationMeal(allMenuItems, ignoreKeywords) {
 
     for (const keyword of randomCombination) {
         const items = allItems.filter(
-            item => item.includes(keyword) &&
-                ![...usedKeywords].some(used => item.includes(used))
+            (item) => item.includes(keyword) && ![...usedKeywords].some((used) => item.includes(used))
         );
 
         if (items.length) {
             const chosenItem = items[Math.floor(Math.random() * items.length)];
             randomItems.push(chosenItem);
-            keyword.split(' ').forEach(k => usedKeywords.add(k));
+            keyword.split(' ').forEach((k) => usedKeywords.add(k));
         }
     }
 
@@ -71,9 +70,7 @@ function getPlannedWeeklyMenu(allMeals, ignoreKeywords) {
     const plannedMeals = [];
     for (let i = 0; i < 5; i++) {
         const setMeal = allMeals[Math.floor(Math.random() * allMeals.length)];
-        const keywordsIgnoredMeal = setMeal.filter(
-            item => !ignoreKeywords.some(keyword => item.includes(keyword))
-        );
+        const keywordsIgnoredMeal = setMeal.filter((item) => !ignoreKeywords.some((keyword) => item.includes(keyword)));
         plannedMeals.push(keywordsIgnoredMeal);
     }
     return plannedMeals;
@@ -114,7 +111,7 @@ export async function GET(request, { params }) {
 export async function POST(request, { params }) {
     try {
         const { allMenuItems, ignoreKeywords, categories, allMeals } = await loadData();
-        
+
         // Access the keyword directly from params.keyword
         const keyword = params.keyword;
         const newIgnoreKeywords = [...ignoreKeywords, keyword];
@@ -129,10 +126,10 @@ export async function POST(request, { params }) {
 export async function DELETE(request, { params }) {
     try {
         const { allMenuItems, ignoreKeywords, categories, allMeals } = await loadData();
-        
+
         // Access the keyword directly from params.keyword
         const keyword = params.keyword;
-        const newIgnoreKeywords = ignoreKeywords.filter(k => k !== keyword);
+        const newIgnoreKeywords = ignoreKeywords.filter((k) => k !== keyword);
         await writeIgnoreKeywords(newIgnoreKeywords);
         return NextResponse.json(newIgnoreKeywords);
     } catch (error) {

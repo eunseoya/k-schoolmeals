@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 @layer base {
-    :not(pre)>code {
+    :not(pre) > code {
         @apply px-1 py-0.5 font-mono rounded bg-neutral-900 text-yellow-200;
         font-size: 0.9em;
     }
@@ -16,7 +16,7 @@
 }
 
 a {
-    @apply underline
+    @apply underline;
 }
 
 .markdown {
@@ -44,7 +44,7 @@ body {
 }
 
 header {
-    background-color: #4A90E2;
+    background-color: #4a90e2;
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -64,7 +64,6 @@ h3 {
     font-size: 18px;
     font-weight: 700;
 }
-
 
 .container {
     width: 90%;
@@ -96,9 +95,8 @@ input {
     margin-right: 5px;
 }
 
-
 .btn {
-    background-color: #4A90E2;
+    background-color: #4a90e2;
     color: #fff;
     border: none;
     padding: 10px 15px;
@@ -109,25 +107,25 @@ input {
 }
 
 .red {
-    background-color: #ED5565;
+    background-color: #ed5565;
 }
 
 .green {
     color: black;
-    background-color: #eef2f7
+    background-color: #eef2f7;
 }
 
 .btn:hover {
-    background-color: #1C84C6;
+    background-color: #1c84c6;
 }
 
 .red:hover {
-    background-color: #DA4453;
+    background-color: #da4453;
 }
 
 .green:hover {
     color: white;
-    background-color: #1AB394;
+    background-color: #1ab394;
 }
 
 .category {
@@ -136,7 +134,7 @@ input {
 }
 
 .edit-mode {
-    background: #ED5565;
+    background: #ed5565;
 }
 
 .btn-x {

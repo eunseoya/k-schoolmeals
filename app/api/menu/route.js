@@ -7,7 +7,7 @@ export async function GET(request) {
         const url = new URL(request.url);
         const path = url.pathname.replace('/api/menu', '');
         const searchParams = url.searchParams;
-        
+
         // Route the request based on the path
         if (path === '/random') {
             const data = await fetchRandomItem();
@@ -23,7 +23,7 @@ export async function GET(request) {
             }
         } else if (path.startsWith('/keyword')) {
             // Handle GET for keywords if needed
-            return NextResponse.json({ error: "Use POST or DELETE for keywords" }, { status: 400 });
+            return NextResponse.json({ error: 'Use POST or DELETE for keywords' }, { status: 400 });
         } else if (path === '/combo/random') {
             const data = await fetchRandomWeeklyMenu();
             return NextResponse.json(data);
@@ -46,7 +46,7 @@ export async function POST(request) {
     try {
         const url = new URL(request.url);
         const path = url.pathname.replace('/api/menu', '');
-        
+
         if (path.startsWith('/category/')) {
             const category = path.split('/category/')[1];
             const data = await updateCategories(category);
@@ -56,7 +56,7 @@ export async function POST(request) {
             const data = await addKeyword(keyword);
             return NextResponse.json(data);
         } else {
-            return NextResponse.json({ error: "Invalid POST endpoint" }, { status: 400 });
+            return NextResponse.json({ error: 'Invalid POST endpoint' }, { status: 400 });
         }
     } catch (error) {
         console.error('API route error:', error);
@@ -69,7 +69,7 @@ export async function DELETE(request) {
     try {
         const url = new URL(request.url);
         const path = url.pathname.replace('/api/menu', '');
-        
+
         if (path.startsWith('/category/')) {
             const category = path.split('/category/')[1];
             const data = await removeCategory(category);
@@ -79,7 +79,7 @@ export async function DELETE(request) {
             const data = await removeKeyword(keyword);
             return NextResponse.json(data);
         } else {
-            return NextResponse.json({ error: "Invalid DELETE endpoint" }, { status: 400 });
+            return NextResponse.json({ error: 'Invalid DELETE endpoint' }, { status: 400 });
         }
     } catch (error) {
         console.error('API route error:', error);

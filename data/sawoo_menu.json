@@ -8110,12 +8110,7 @@
     {
         "date": "20230822",
         "meal": "\uc11d\uc2dd",
-        "menu": [
-            "\uc57c\ucc44\ucac4\uba74",
-            "\uc655\ub9cc\ub450",
-            "\ub2e8\ubb34\uc9c0",
-            "\uacc4\uc808\uacfc\uc77c"
-        ]
+        "menu": ["\uc57c\ucc44\ucac4\uba74", "\uc655\ub9cc\ub450", "\ub2e8\ubb34\uc9c0", "\uacc4\uc808\uacfc\uc77c"]
     },
     {
         "date": "20230824",
@@ -9415,12 +9410,7 @@
     {
         "date": "20241029",
         "meal": "\uc11d\uc2dd",
-        "menu": [
-            "\ucd94\uac00\ubc25",
-            "\uc794\uce58\uad6d\uc218",
-            "\uc655\ub9cc\ub450",
-            "\ud3ec\uae30\uae40\uce58"
-        ]
+        "menu": ["\ucd94\uac00\ubc25", "\uc794\uce58\uad6d\uc218", "\uc655\ub9cc\ub450", "\ud3ec\uae30\uae40\uce58"]
     },
     {
         "date": "20241031",

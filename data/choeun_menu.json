@@ -6283,16 +6283,12 @@
     {
         "date": "20231116",
         "meal": "\uc911\uc2dd",
-        "menu": [
-            "\ud63c\ud569\uc7a1\uace1\ubc25"
-        ]
+        "menu": ["\ud63c\ud569\uc7a1\uace1\ubc25"]
     },
     {
         "date": "20231117",
         "meal": "\uc911\uc2dd",
-        "menu": [
-            "\ub204\ub8fd\uc9c0"
-        ]
+        "menu": ["\ub204\ub8fd\uc9c0"]
     },
     {
         "date": "20231120",
