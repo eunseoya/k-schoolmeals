@@ -90,7 +90,7 @@ const MenuApp: React.FC = () => {
     };
 
     const addKeyword = () => {
-        if (!ignoreKeyword) return;
+        if (!ignoreKeyword || ignoredKeywords.includes(ignoreKeyword)) return;
         fetch(`/api/menu/keyword/${ignoreKeyword}`, { method: 'POST' })
             .then((response) => {
                 if (!response.ok) {

@@ -77,10 +77,11 @@ function getPlannedWeeklyMenu(allMeals, ignoreKeywords) {
 }
 
 // API Route Handlers
-export async function GET(request, { params }) {
+export async function GET(request, context) {
     try {
+        const params = await context.params;
+        const { path } = params;
         const { allMenuItems, ignoreKeywords, categories, allMeals } = await loadData();
-        const path = params.path ? params.path.join('/') : '';
 
         if (path === 'random') {
             const randomItem = getRandomMenuItem(allMenuItems, ignoreKeywords);
@@ -108,12 +109,12 @@ export async function GET(request, { params }) {
     }
 }
 
-export async function POST(request, { params }) {
+export async function POST(request, context) {
     try {
+        const params = await context.params;
+        const { keyword } = params;
         const { allMenuItems, ignoreKeywords, categories, allMeals } = await loadData();
 
-        // Access the keyword directly from params.keyword
-        const keyword = params.keyword;
         const newIgnoreKeywords = [...ignoreKeywords, keyword];
         await writeIgnoreKeywords(newIgnoreKeywords);
         return NextResponse.json(newIgnoreKeywords);
@@ -123,12 +124,12 @@ export async function POST(request, { params }) {
     }
 }
 
-export async function DELETE(request, { params }) {
+export async function DELETE(request, context) {
     try {
+        const params = await context.params;
+        const { keyword } = params;
         const { allMenuItems, ignoreKeywords, categories, allMeals } = await loadData();
 
-        // Access the keyword directly from params.keyword
-        const keyword = params.keyword;
         const newIgnoreKeywords = ignoreKeywords.filter((k) => k !== keyword);
         await writeIgnoreKeywords(newIgnoreKeywords);
         return NextResponse.json(newIgnoreKeywords);

@@ -1,8 +1,9 @@
 import { loadData, writeCategories, getMenuByCategory } from '../../../../lib/menu-utils';
 import { NextResponse } from 'next/server';
 
-export async function GET(request, { params }) {
+export async function GET(request, context) {
     try {
+        const params = await context.params;
         const { category } = params;
         const { allMenuItems, ignoreKeywords } = await loadData();
 
@@ -12,9 +13,9 @@ export async function GET(request, { params }) {
         return NextResponse.json({ error: error.message }, { status: 500 });
     }
 }
-
-export async function POST(request, { params }) {
+export async function POST(request, context) {
     try {
+        const params = await context.params;
         const { category } = params;
         const { categories } = await loadData();
 
@@ -27,8 +28,9 @@ export async function POST(request, { params }) {
     }
 }
 
-export async function DELETE(request, { params }) {
+export async function DELETE(request, context) {
     try {
+        const params = await context.params;
         const { category } = params;
         const { categories } = await loadData();
 
