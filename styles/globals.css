@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :not(pre)>code {
+        @apply px-1 py-0.5 font-mono rounded bg-neutral-900 text-yellow-200;
+        font-size: 0.9em;
+    }
+
+    h1 {
+        @apply mb-6 text-4xl font-bold tracking-tight md:text-5xl;
+    }
+}
+
+a {
+    @apply underline
+}
+
+.markdown {
+    @apply mb-1;
+}
+
+.alert .markdown {
+    @apply mb-0;
+}
+
+.markdown p {
+    @apply mb-3;
+}
+
+.btn:disabled {
+    @apply text-neutral-400 bg-neutral-700;
+}
+
+/* Basic CSS for the cafeteria app */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #4A90E2;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+
+.container {
+    width: 90%;
+    max-width: 960px;
+    margin: 20px auto;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    margin-top: 0;
+}
+
+.card p {
+    color: #666;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+}
+
+
+.btn {
+    background-color: #4A90E2;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 10px;
+}
+
+.red {
+    background-color: #ED5565;
+}
+
+.green {
+    color: black;
+    background-color: #eef2f7
+}
+
+.btn:hover {
+    background-color: #1C84C6;
+}
+
+.red:hover {
+    background-color: #DA4453;
+}
+
+.green:hover {
+    color: white;
+    background-color: #1AB394;
+}
+
+.category {
+    display: flex;
+    align-items: center;
+}
+
+.edit-mode {
+    background: #ED5565;
+}
+
+.btn-x {
+    margin-left: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    text-align: right;
+}
+
+.category-description {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.result {
+    text-decoration: none;
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.keywords-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.keyword-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.recommendation-grid {
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    gap: 10px;
+}
